@@ -16,9 +16,11 @@ Node.js, SASS, GRUNT (grunt-sass, grunt-contrib-watch, grunt-contrib-copy, grunt
 
 INSTALLATION / THEME CUSTOMIZATION:
 1. Download & install theme
-  1a. Install Node.js, SASS, GRUNT if not already installed. For more info: https://nodejs.org/, https://gruntjs.com/installing-grunt, http://sass-lang.com/install
+// If you need to install the dependencies...
+1. Install Node.js, SASS, GRUNT if not already installed. For more info: https://nodejs.org/, https://gruntjs.com/installing-grunt, http://sass-lang.com/install
+
 2. Run "grunt" via command line within the theme's root directory
-  2a. If all dependencies are correctly installed you should see something like this:
+// If all dependencies are correctly installed you should see something like this:
   ---------------------------------------------------------
       Running "sass:dist" (sass) task
 
@@ -36,26 +38,28 @@ INSTALLATION / THEME CUSTOMIZATION:
 
 IMPORTANT NOTES:
 1. SKM Framework is a framework not a theme and is geared towards theme developers
-2. SKM Framework includes a large assortment of useful classes designed to accelerate template development
-  2a. Fonts sizes - assets/scss/components/fonts/font_sizes.scss"
-  2b. Line heights - "assets/scss/components/fonts/font_line_heights.scss"
-  2c. Font families - "assets/scss/components/fonts/font_families.scss"
-  2d. Font weights - "assets/scss/components/fonts/font_weights.scss"
-  2e. Theme colors - "assets/scss/components/colors.scss"
-  2f. Font tag styles (eg h1, h2, ect.) - "assets/scss/components/fonts.scss"
-  2g. Font tag styles (eg h1, h2, ect.) - "assets/scss/components/fonts.scss"
-  2h. Animations - "assets/scss/components/utilities/animations.scss"
-  2i. Background styles - "assets/scss/components/utilities/backgrounds.scss"
-  2j. Buttons - "assets/scss/components/utilities/buttons.scss"
-  2k. Forms - "assets/scss/components/utilities/forms.scss"
-  2l. Layout - "assets/scss/components/utilities/layout.scss"
-  2m. Lists - "assets/scss/components/utilities/lists.scss"
-  2n. Margins - "assets/scss/components/utilities/margins.scss"
-  2o. Paddings - "assets/scss/components/utilities/paddings.scss"
-  2p. Full-height panels - "assets/scss/components/utilities/panels.scss"
-  2q. Positioning (relative, absolute, fixed) - "assets/scss/components/utilities/positionings.scss"
-  2r. CSS3 transitions - "assets/scss/components/utilities/transitions.scss"
-  2s. Vertical Alignment - "assets/scss/components/utilities/vertical_alignment.scss"
+2. SKM Framework includes an assortment of useful classes designed to accelerate template development
+ // IMPORTANT SASS FILES FOR RAPID DEVELOPMENT
+ 1. Fonts sizes - assets/scss/components/fonts/font_sizes.scss"
+ 2. Line heights - "assets/scss/components/fonts/font_line_heights.scss"
+ 3. Font families - "assets/scss/components/fonts/font_families.scss"
+ 4. Font weights - "assets/scss/components/fonts/font_weights.scss"
+ 5. Theme colors - "assets/scss/components/colors.scss"
+ 6. Font tag styles (eg h1, h2, ect.) - "assets/scss/components/fonts.scss"
+ 7. Font tag styles (eg h1, h2, ect.) - "assets/scss/components/fonts.scss"
+ 8. Animations - "assets/scss/components/utilities/animations.scss"
+ 9. Background styles - "assets/scss/components/utilities/backgrounds.scss"
+ 10. Buttons - "assets/scss/components/utilities/buttons.scss"
+ 11. Forms - "assets/scss/components/utilities/forms.scss"
+ 12. Layout - "assets/scss/components/utilities/layout.scss"
+ 13. Lists - "assets/scss/components/utilities/lists.scss"
+ 14. Margins - "assets/scss/components/utilities/margins.scss"
+ 15. Paddings - "assets/scss/components/utilities/paddings.scss"
+ 16. Full-height panels - "assets/scss/components/utilities/panels.scss"
+ 17. Positioning (relative, absolute, fixed) - "assets/scss/components/utilities/positionings.scss"
+ 18. CSS3 transitions - "assets/scss/components/utilities/transitions.scss"
+ 19. Vertical Alignment - "assets/scss/components/utilities/vertical_alignment.scss"
+
 3. SKM Framework uses Bootstrap 3 as the core front-end framework and includes font-awesome and all other bootstrap components
 
 
