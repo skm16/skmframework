@@ -5,7 +5,7 @@
 - Author: Sean Roberts
 - Author URI: https://seanroberts.me
 - Description: A stripped-down developer-friendly WordPress theme framework that harnesses the power of Bootstrap 3, grunt and sass
-- Version: 0.5
+- Version: 0.5.1
 - Text Domain: skmframework
 - License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
 - Tags: left-sidebar, two-columns, custom-background, custom-header, custom-menu, custom-logo, editor-style, full-width-template
