@@ -1,0 +1,42 @@
+.single-post-comments-wrapper {
+    margin: 30px 0 0;
+}
+
+h3#comments {
+    margin-bottom: 30px;
+}
+
+.single-post-comments-wrapper .comment-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.single-post-comments-wrapper .comment-list .comment {
+    padding-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+}
+
+.comment-author {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.single-post-comments-wrapper .navigation {
+    float: left;
+    width: 100%;
+    min-height: 1px;
+}
+
+.single-post-comments-wrapper .navigation::after,
+.single-post-comments-wrapper .navigation::before {
+    content: " ";
+    display: table;
+}
+
+.comment-respond label {
+    display: block;
+}

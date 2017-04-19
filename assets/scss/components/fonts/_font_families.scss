@@ -1,0 +1,13 @@
+/* ----------------------------------------
+  -- SET YOUR THEME FONTS HERE
+----------------------------------------- */
+$font_primary: 'Roboto', sans-serif;
+$font_secondary: 'Roboto', sans-serif;
+
+.font-primary {
+    font-family: $font_primary;
+}
+
+.font-secondary {
+    font-family: $font_secondary;
+}

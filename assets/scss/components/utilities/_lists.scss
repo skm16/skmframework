@@ -1,0 +1,10 @@
+ul.inline-list {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    list-style-type: none;
+}
+
+ul.inline-list > li {
+    display: inline-block;
+}

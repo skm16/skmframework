@@ -1,0 +1,35 @@
+
+/* -- basic overlays -- */
+.has-overlay {
+    position: relative;
+}
+
+.has-overlay::after {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    opacity: 0.0;
+    visibility: hidden;
+    transition: $transition_opacity;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.has-overlay:hover::after {
+    opacity: 0.5;
+    visibility: visible;
+}
+
+.has-overlay .inner {
+    display: none;
+}
+
+.has-overlay:hover .inner {
+    display: block;
+}

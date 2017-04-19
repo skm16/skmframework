@@ -1,0 +1,25 @@
+.button {
+    display: inline-block;
+    border: 1px solid $black;
+    color: $black;
+    font-size: 16px;
+    padding: 7px 15px;
+    transition: ease all 0.25s;
+    cursor: pointer;
+}
+
+.button.large-button {
+    font-size: 21px;
+    padding: 15px 40px;
+}
+
+.button:hover {
+    background-color: $black;
+    color: $white;
+    text-decoration: none;
+}
+@media screen and (max-width:1300px) {}
+@media screen and (max-width:1200px) {}
+@media screen and (max-width:991px) {}
+@media screen and (max-width:768px) {}
+@media screen and (max-width:600px) {}

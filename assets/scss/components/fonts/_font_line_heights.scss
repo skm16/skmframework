@@ -1,0 +1,23 @@
+/*
+  -- Contains line-height classes. Add line height classes as needed.
+*/
+.lh125 {
+    line-height: 1.25em;
+}
+
+.lh15 {
+    line-height: 1.5em;
+}
+
+.lh175 {
+    line-height: 1.75em;
+}
+
+.lh200 {
+    line-height: 2em;
+}
+@media screen and (max-width:1300px) {}
+@media screen and (max-width:1200px) {}
+@media screen and (max-width:991px) {}
+@media screen and (max-width:768px) {}
+@media screen and (max-width:600px) {}

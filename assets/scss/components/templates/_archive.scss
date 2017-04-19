@@ -1,0 +1,23 @@
+.archive-page-title {
+    margin-bottom: 30px;
+}
+
+.article-roll-wrapper article {
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #dedede;
+}
+
+.article-roll-wrapper article:last-of-type {
+    border-bottom: none;
+}
+
+.post-thumbnail-wrapper img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.post-roll-excerpt {
+    margin-bottom: 0;
+}

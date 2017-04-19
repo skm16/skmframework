@@ -1,0 +1,36 @@
+.menu-main-menu-container ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: right;
+}
+
+.menu-main-menu-container ul > li {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.menu-main-menu-container ul > li:last-of-type {
+    margin-right: 0;
+}
+
+.menu-main-menu-container ul > li > ul {
+    position: absolute;
+    left: 0;
+    white-space: nowrap;
+    text-align: left;
+    opacity: 0;
+    background-color: $white;
+    visibility: hidden;
+    transition: ease all 0.25s;
+}
+
+.menu-main-menu-container ul > li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-main-menu-container ul > li > ul > li {
+    display: block;
+}

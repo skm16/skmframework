@@ -1,0 +1,29 @@
+/* -- flexbox method -- */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* -- transform method -- */
+.vert-align-parent {
+    position: relative;
+}
+
+.vert-align {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+/* -- table method * uses js * -- */
+.va-table {
+    display: table;
+    height: inherit;
+    width: 100%;
+}
+
+.va-table-cell {
+    display: table-cell;
+    height: inherit;
+    width: 100%;
+    vertical-align: middle;
+}

@@ -1,0 +1,48 @@
+@import "fonts/font_families";
+@import "fonts/font_sizes";
+@import "fonts/font_weights";
+@import "fonts/font_line_heights";
+
+body,
+html {
+    font-family: $font_primary;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 0;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+h4 {
+    margin-bottom: 10px;
+}
+
+h5 {
+    margin-bottom: 10px;
+}
+
+h6 {
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5em;
+}
+@media screen and (max-width:1300px) {}
+@media screen and (max-width:1200px) {}
+@media screen and (max-width:991px) {}
+@media screen and (max-width:768px) {}
+@media screen and (max-width:600px) {}
