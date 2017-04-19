@@ -1,14 +1,14 @@
 # skmframework
 
-Theme Name: SKM Framework
-Theme URI: https://seanroberts.me/skm-framework
-Author: SKM Team
-Author URI: https://seanroberts.me
-Description: A stripped-down developer-friendly WordPress theme framework that harnesses the power of Bootstrap 3, grunt and sass
-Version: 1.0
-Text Domain: skmframework
-License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
-Tags: left-sidebar, two-columns, custom-background, custom-header, custom-menu, custom-logo, editor-style, full-width-template
+- Theme Name: SKM Framework
+- Theme URI: https://seanroberts.me/skm-framework
+- Author: Sean Roberts
+- Author URI: https://seanroberts.me
+- Description: A stripped-down developer-friendly WordPress theme framework that harnesses the power of Bootstrap 3, grunt and sass
+- Version: 0.5
+- Text Domain: skmframework
+- License URI: https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html
+- Tags: left-sidebar, two-columns, custom-background, custom-header, custom-menu, custom-logo, editor-style, full-width-template
 
 
 # DEPENDENCIES:
@@ -63,6 +63,6 @@ Node.js, SASS, GRUNT (grunt-sass, grunt-contrib-watch, grunt-contrib-copy, grunt
 ######  GOOGLE FONT SUPPORT - Defaults to Roboto
 --------------
 - To add custom Google Fonts update the following file with your Google Fonts URL
-- "lib/google_fonts" (Line 7)  
+  - "lib/google_fonts" (Line 7)  
 - Update your global SASS font variables in the following file -
-- "assets/scss/components/fonts/font_families.scss"
+  - "assets/scss/components/fonts/font_families.scss"
