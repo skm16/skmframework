@@ -26,7 +26,6 @@
           <div class="post-roll-excerpt">
            <?php the_excerpt(); ?>
            <?php edit_post_link('edit', '<p>', '</p>'); ?>
-           <a href="<?php the_permalink(); ?>" title="Link to <?php the_title(); ?>" class="button">Read More</a>
           </div>
          </div>
         </div>

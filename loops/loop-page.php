@@ -18,9 +18,10 @@
          else:
           the_content();
          endif; ?>
+         <div class="clearfix"></div>
          <?php edit_post_link('edit', '<p>', '</p>'); ?>
         </div>
-        
+
       </article>
       <div class="single-post-comments-wrapper">
        <?php if ( comments_open() || get_comments_number() ) :

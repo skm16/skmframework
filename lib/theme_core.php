@@ -36,10 +36,14 @@ function skmframework_archive_page_title() {
     $archive_page_title = 'Blog';
   elseif(is_category()):
     $archive_page_title = $queried_object->name;
-    elseif(is_date()):
-      $monthnum = get_query_var('monthnum');
-      $monthname = $GLOBALS['wp_locale']->get_month($monthnum);
-      $archive_page_title = $monthname.' '.get_query_var('year');
+  elseif(is_date()):
+    $monthnum = get_query_var('monthnum');
+    $monthname = $GLOBALS['wp_locale']->get_month($monthnum);
+    $archive_page_title = 'Published in '. $monthname.' '.get_query_var('year');
+  elseif(is_tag()):
+    $archive_page_title = 'Tagged in <span class="text-capitalize">'.$queried_object->name.'</span>';
+  elseif(is_author()):
+    $archive_page_title = '<span>Articles by '.get_the_author().'</span>';
   elseif(is_404()):
     $archive_page_title = '404 - Page not found.';
   endif;
@@ -105,3 +109,23 @@ if ( (!is_admin()) && is_singular() && comments_open() && get_option('thread_com
   wp_enqueue_script( 'comment-reply' );
 }
 add_action('wp_print_scripts', 'skmframework_queue_js');
+
+// read more link
+function skmframework_excerpt_more( $link ) {
+	if ( is_admin() ) {
+		return $link;
+	}
+
+	$link = sprintf( '<p class="link-more"><a href="%1$s" class="more-link">%2$s</a></p>',
+		esc_url( get_permalink( get_the_ID() ) ),
+		/* translators: %s: Name of current post */
+		sprintf( __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'skmframework' ), get_the_title( get_the_ID() ) )
+	);
+	return ' &hellip; ' . $link;
+}
+add_filter( 'excerpt_more', 'skmframework_excerpt_more' );
+
+// html 5 support
+add_theme_support( 'html5', array(
+ 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
+) );

@@ -18,6 +18,7 @@
          else:
           the_content();
          endif; ?>
+         <div class="clearfix"></div>
          <?php edit_post_link('edit', '<p>', '</p>'); ?>
         </div>
         <?php if(has_tag()): ?>

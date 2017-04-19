@@ -17,6 +17,15 @@ h6 {
     margin-top: 0;
 }
 
+main h1,
+main h2,
+main h3,
+main h4,
+main h5,
+main h6 {
+    margin-top: 10px;
+}
+
 h2 {
     margin-bottom: 15px;
 }
@@ -37,9 +46,35 @@ h6 {
     margin-bottom: 10px;
 }
 
-p {
+:not(li) > ol,
+:not(li) > ul {
+    margin: 0;
+    padding: 0;
+}
+
+ol li,
+p,
+ul li {
     font-size: 16px;
     line-height: 1.5em;
+}
+
+ol li,
+ul li {
+    list-style-position: inside;
+}
+
+table {
+    margin: 15px 0;
+}
+
+td,
+th {
+    padding: 5px;
+}
+
+tr.odd {
+    background-color: #efefef;
 }
 @media screen and (max-width:1300px) {}
 @media screen and (max-width:1200px) {}

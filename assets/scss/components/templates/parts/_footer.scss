@@ -1,36 +1,10 @@
-/* -- sticy footer -- */
-* {
-    margin: 0;
-}
-
-body,
-html {
-    height: 100%;
-}
-
-.main {
-    min-height: 100%;
-    /* equal to footer height */
-    margin-bottom: -31px;
-}
-
-main:after {
-    content: "";
-    display: block;
-}
-
-footer,
-main:after {
-    height: 31px;
-}
-
-footer {
+#site-footer {
     height: 31px;
     background-color: $black;
     padding: 5px;
 }
 
-footer p {
+#site-footer p {
     color: $white;
     font-size: 14px;
     margin-bottom: 0;

@@ -16,7 +16,7 @@
          <?php if(post_password_required()):
           echo skmframework_password_form();
          else:
-          the_content();
+          the_content( 'Keep reading' );
          endif; ?>
          <?php edit_post_link('edit', '<p>', '</p>'); ?>
         </div>
