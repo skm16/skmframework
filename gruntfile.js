@@ -6,19 +6,18 @@ module.exports = function(grunt) {
         sass: {                              // Task
          dist: {                            // Target
           options: {                       // Target options
-           style: 'compressed'
+           style: 'compressed',
+           noCache: true,
           },
           files: {
               'assets/public/css/app.min.css': 'assets/scss/app.scss'
-          }
+          },
          }
         },
 
         postcss: {
          options: {
-          map: {
-           inline: true
-          },
+          map: false,
           processors: [
            require('pixrem')(), // add fallbacks for rem units
            require('autoprefixer')({browsers: 'last 2 versions'}), // add vendor prefixes
