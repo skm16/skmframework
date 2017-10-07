@@ -3,23 +3,21 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         // Compile SASS files into minified CSS.
-        sass: {
-
-            dist: {
-                options: {
-                    outputStyle: 'compressed'
-                },
-                files: {
-                    'assets/dist/css/app.css': 'assets/scss/app.scss'
-                }
-            }
+        sass: {                              // Task
+         dist: {                            // Target
+          options: {                       // Target options
+           style: 'compressed'
+          },
+          files: {
+              'assets/public/css/app.min.css': 'assets/scss/app.scss'
+          }
+         }
         },
 
         postcss: {
          options: {
           map: {
-           inline: false, // save all sourcemaps as separate files...
-           annotation: 'dist/css/maps/' // ...to the specified directory
+           inline: true
           },
           processors: [
            require('pixrem')(), // add fallbacks for rem units
@@ -28,7 +26,7 @@ module.exports = function(grunt) {
           ]
          },
          dist: {
-          src: 'assets/dist/css/*.css'
+          src: 'assets/public/css/*.css'
          }
         },
 
@@ -44,7 +42,7 @@ module.exports = function(grunt) {
         uglify: {
             my_target: {
                 files: {
-                    'assets/dist/js/compiled.min.js': ['assets/js/compiled/compiled.js']
+                    'assets/public/js/compiled.min.js': ['assets/js/compiled/compiled.js']
                 }
             }
         },
@@ -71,10 +69,10 @@ module.exports = function(grunt) {
 
 
     // Load externally defined tasks.
-    grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-postcss');
-    //grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
 

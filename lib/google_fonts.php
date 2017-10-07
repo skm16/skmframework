@@ -4,6 +4,6 @@
   -- defaults to Roboto
 ----------------------------------------- */
 function skmframework_google_fonts() {
-    wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i' );
+    wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Libre+Franklin:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i' );
 }
 add_action( 'wp_enqueue_scripts', 'skmframework_google_fonts' );
