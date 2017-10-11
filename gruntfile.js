@@ -61,7 +61,7 @@ module.exports = function(grunt) {
                     'assets/scss/*.scss',
                     'assets/scss/**/*.scss'
                 ],
-                tasks: ['sass', 'autoprefixer', 'concat', 'uglify']
+                tasks: ['sass', 'postcss', 'concat', 'uglify']
             },
         }
     });
@@ -70,7 +70,6 @@ module.exports = function(grunt) {
     // Load externally defined tasks.
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-postcss');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');

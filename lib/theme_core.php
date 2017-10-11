@@ -129,3 +129,147 @@ add_filter( 'excerpt_more', 'skmframework_excerpt_more' );
 add_theme_support( 'html5', array(
  'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
 ) );
+
+// get acf image field attributes
+function skm_get_acf_image_with_atts($image, $image_size, $class, $id) {
+  if( !empty($image) ):
+  	$url = $image['url'];
+   $title = $image['title'];
+  	$alt = $image['alt'];
+  	$id = $image['ID'];
+  	$size = $image_size;
+   if($image_size === 'full'):
+    $thumb = $image['url'];
+    $width = $image['width'];
+    $height = $image['height'];
+   else:
+  	 $thumb = $image['sizes'][ $size ];
+  	 $width = $image['sizes'][ $size . '-width' ];
+  	 $height = $image['sizes'][ $size . '-height' ];
+   endif;
+   $custom_classes = '';
+   $image = '<img src="'.$thumb.'" alt="'.$alt.'" height="'.$height.'" id="'.$id.'" width="'.$width.'" title="'.$title.'" class="'.$class.'"  />';
+    return $image;
+  else:
+    return '<img src="'.get_stylesheet_directory_uri().'/assets/public/images/no-image.jpg" alt="'.$alt.'" height="121" width="120" title="No image available" class="no-image-available"  />';
+  endif;
+};
+
+// get acf image field url
+function skm_get_acf_image_url($image, $image_size) {
+  if( !empty($image) ):
+  	$url = $image['url'];
+  	$size = $image_size;
+  	$thumb = $image['sizes'][ $size ];
+   return $thumb;
+  endif;
+};
+
+// acf register options page
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page();
+}
+
+// allow svg upload
+function cc_mime_types($mimes) {
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
+/**
+* Disable the emoji's
+*/
+function disable_emojis() {
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
+remove_action( 'admin_print_styles', 'print_emoji_styles' );
+remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
+add_filter( 'wp_resource_hints', 'disable_emojis_remove_dns_prefetch', 10, 2 );
+}
+add_action( 'init', 'disable_emojis' );
+
+/**
+* Filter function used to remove the tinymce emoji plugin.
+*
+* @param array $plugins
+* @return array Difference betwen the two arrays
+*/
+function disable_emojis_tinymce( $plugins ) {
+if ( is_array( $plugins ) ) {
+return array_diff( $plugins, array( 'wpemoji' ) );
+} else {
+return array();
+}
+}
+
+/**
+* Remove emoji CDN hostname from DNS prefetching hints.
+*
+* @param array $urls URLs to print for resource hints.
+* @param string $relation_type The relation type the URLs are printed for.
+* @return array Difference betwen the two arrays.
+*/
+function disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
+if ( 'dns-prefetch' == $relation_type ) {
+/** This filter is documented in wp-includes/formatting.php */
+$emoji_svg_url = apply_filters( 'emoji_svg_url', 'https://s.w.org/images/core/emoji/2/svg/' );
+
+$urls = array_diff( $urls, array( $emoji_svg_url ) );
+}
+
+return $urls;
+}
+
+// Find the image id from a URL
+function url_get_image_id($image_url) {
+   global $wpdb;
+   $attachment = $wpdb->get_col($wpdb->prepare("SELECT ID FROM $wpdb->posts WHERE guid='%s';", $image_url ));
+   return $attachment[0];
+}
+
+// determine whether post has a featured image, if not, find the first image inside the post content, $size passes the thumbnail size, $url determines whether to return a URL or a full image tag
+function checkImageType($size, $type) {
+   global $post;
+   $content = $post->post_content;
+   $first_img = '';
+   ob_start();
+   ob_end_clean();
+   $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $content, $matches);
+   $first_img = $matches[1][0];
+   /*If there's a featured image, show it*/
+   if (get_the_post_thumbnail($post_id) != '' ) {
+       if($type=='url') {
+           the_post_thumbnail_url($size);
+       } else {
+           the_post_thumbnail($size);
+       }
+   } else {
+       /*No featured image, so we get the first image inside the post content*/
+       if ($first_img) {
+           //let's get the correct image dimensions
+           $image_id = url_get_image_id($first_img);
+           $image_thumb = wp_get_attachment_image_src($image_id, $size);
+           // if we've found an image ID, correctly display it
+           if($image_thumb) {
+               if($type=='url') {
+                   echo $image_thumb[0];
+               } else {
+                   echo '<img src="'.$image_thumb[0].'" alt="'.get_the_title().'"/>';
+               }
+           } else {
+               //if no image (i.e. from an external source), echo the original URL
+               if($type=='url') {
+                   echo $first_img;
+               } else {
+                   echo '<img src="'.$first_img.'" alt="'.get_the_title().'"/>';
+               }
+
+           }
+       }
+   }
+}
